@@ -112,9 +112,24 @@ h2 {
   text-decoration: underline white;
 }
 
+.footerText {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.footerText:hover {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: underline rgba(255, 255, 255, 0.5);
+}
+
 .serviceCode {
   border-radius: 0%;
   font-size: 14px;
-  color: antiquewhite;
-  border-color: antiquewhite;
+  color: rgba(255, 255, 255, 0.7);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.serviceCode:hover {
+  background-color: #221f20;
+  border-color: white;
 }
