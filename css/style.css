@@ -152,6 +152,7 @@ a {
   left: auto;
   margin: 0;
   justify-content: start;
+  z-index: 0;
 }
 
 .card {

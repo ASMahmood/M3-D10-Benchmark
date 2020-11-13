@@ -81,10 +81,10 @@
             </a>
 
             <div
-              class="dropdown-menu dropdown-menu-right genreMenu"
+              class="dropdown-menu dropdown-menu-right"
               aria-labelledby="dropdownMenuLink"
             >
-              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="backoffice.html">Back Office</a>
             </div>
           </div>
         </div>
@@ -378,6 +378,7 @@
               let newCard = document.createElement("div");
               newCard.classList.add("card", "col");
               newCard.style.maxWidth = "15vw";
+              newCard.style.minWidth = "15vw";
               newCard.onclick = `window.location.assign("backoffice.html")`;
               newCard.innerHTML = `<img src="${
                 s > 0 ? movieArray[i + 6 * s].imageUrl : movieArray[i].imageUrl
