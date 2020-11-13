@@ -157,15 +157,24 @@ a {
 .card {
   padding: 0;
   background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.card-body {
+  display: none;
+  transition: all 0.3s ease;
 }
 
 .card:hover .card-body {
   position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex !important;
   background-color: rgba(0, 0, 0, 0.7);
   flex-direction: column;
-  padding-left: 3px;
-  padding-top: 5px;
+  padding: 7px;
 }
 
 .card-body h5 {
@@ -173,5 +182,14 @@ a {
 }
 
 .card-body p {
-  font-size: 12px;
+  font-size: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.form-group input {
+  width: 40vw;
 }

@@ -10,8 +10,29 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
+
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
+    <nav class="navbar navbar-expand-lg navbarBG py-0 px-4">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarTogglerDemo01"
+          aria-controls="navbarTogglerDemo01"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <a class="navbar-brand" href="index.html"
+            ><img src="img/logo.png" alt="logo" style="width: 100px"
+          /></a>
+        </div>
+      </nav>
+
     <div class="container mt-5">
       <div class="row">
         <div class="col-sm">
@@ -20,37 +41,68 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-3 d-flex flex-column">
           <h5>Send Changes</h5>
-          <input type="button" value="SUBMIT" onclick="handleSubmit(event)" />
-          <a href="index.html">Return to mainpage</a>
+          <input type="button" class="btn btn-warning my-1" value="SUBMIT" onclick="handleSubmit(event)" />
+          <input type="button" class="btn btn-danger my-1" value="DELETE" onclick="deleteMovie()" />
+          
+          <a href="index.html" class="btn btn-dark my-1">Return to mainpage</a>
         </div>
         <div class="col-sm-9">
           <div class="row">
-            <form>
-              <div class="form-group">
+            <form style="width: 100%;">
+              <div class="form-group d-flex justify-content-between">
                 <label for="name">Movie Title:</label>
-                <input type="text" id="name" placeholder="Friday the 13th" />
+                <input type="text" id="name" placeholder="Friday the 13th" style="width: 40vw;" />
               </div>
-              <div class="form-group">
+              <div class="form-group d-flex justify-content-between">
                 <label for="description">Movie Description:</label>
-                <textarea rows="3" type="text" id="description"/></textarea>
+                <textarea rows="3" type="text" id="description"  style="width: 40vw;"/></textarea>
               </div>
-              <div class="form-group">
+              <div class="form-group d-flex justify-content-between">
                 <label for="category">Genre:</label>
-                <input type="text" id="category" placeholder="horror">
+                <input type="text" id="category" placeholder="Horror"  style="width: 40vw;">
               </div>
-              <div class="form-group">
+              <div class="form-group d-flex justify-content-between">
                 <label for="imageUrl">Image Url:</label>
-                <input type="text" id="imageUrl">
+                <input type="text" id="imageUrl"  style="width: 40vw;">
               </div>
             </form>
           </div>
         </div>
+        <hr />
       </div>
     </div>
 
     <script>
+        window.onload = async () => {
+            let urlParams = new URLSearchParams(window.location.search)
+            id = urlParams.get("id")
+            category = urlParams.get("category")
+            console.log(id)
+            console.log(category)
+            
+            if(id) {
+                let response = await fetch("https://striveschool-api.herokuapp.com/api/movies/" + category, {
+                    headers: {
+                            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmFiY2ZjMDRiY2RlMTAwMTc2MTZhOTkiLCJpYXQiOjE2MDUwOTUzNjEsImV4cCI6MTYwNjMwNDk2MX0.pk0lM9kNMqL9A5UmPUWFFL7d6VIeDWrsadveoIjUNSQ"
+                    }     
+                })
+                
+                let movies = await response.json()
+                console.log(movies)
+                let desiredMovieArray = movies.filter(movie => movie._id === id)
+                let desiredMovie = desiredMovieArray[0]
+                console.log(desiredMovie)
+
+                document.querySelector("#name").value = desiredMovie.name
+                document.querySelector("#description").value = desiredMovie.description
+                document.querySelector("#category").value = desiredMovie.category
+                document.querySelector("#imageUrl").value = desiredMovie.imageUrl
+                
+            }
+        }
+
         const handleSubmit = (e) => {
             e.preventDefault()
             submitMovie()
@@ -63,25 +115,64 @@
                 imageUrl: document.querySelector("#imageUrl").value,
             }
 
-            try {            
-                let response = await fetch("https://striveschool-api.herokuapp.com/api/movies/", {
-                    method: 'POST',
-                    body: JSON.stringify(newMovie),
-                    headers: {
-                            "Content-Type": "application/json",
-                            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmFiY2ZjMDRiY2RlMTAwMTc2MTZhOTkiLCJpYXQiOjE2MDUwOTUzNjEsImV4cCI6MTYwNjMwNDk2MX0.pk0lM9kNMqL9A5UmPUWFFL7d6VIeDWrsadveoIjUNSQ"
-                    }     
-                })
+            
+
+            try {
+                let response            
+                if(id) {
+                    response = await fetch("https://striveschool-api.herokuapp.com/api/movies/"+ id, {
+                        method: 'PUT',
+                        body: JSON.stringify(newMovie),
+                        headers: {
+                                "Content-Type": "application/json",
+                                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmFiY2ZjMDRiY2RlMTAwMTc2MTZhOTkiLCJpYXQiOjE2MDUwOTUzNjEsImV4cCI6MTYwNjMwNDk2MX0.pk0lM9kNMqL9A5UmPUWFFL7d6VIeDWrsadveoIjUNSQ"
+                        }
+                    })
+                } else {
+                    response = await fetch("https://striveschool-api.herokuapp.com/api/movies/", {
+                        method: 'POST',
+                        body: JSON.stringify(newMovie),
+                        headers: {
+                                "Content-Type": "application/json",
+                                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmFiY2ZjMDRiY2RlMTAwMTc2MTZhOTkiLCJpYXQiOjE2MDUwOTUzNjEsImV4cCI6MTYwNjMwNDk2MX0.pk0lM9kNMqL9A5UmPUWFFL7d6VIeDWrsadveoIjUNSQ"
+                        }     
+                    })
+                }
 
                 if(response.ok) {
                     alert("All good")
+                    window.location = "index.html"
                 } else {
                     alert(error)
                 }  
             } catch (error) {
                 console.log(error)
             } 
-        } 
+        }
+        
+        const deleteMovie = async () => {
+            if(id) {
+                try {
+                    let response = await fetch("https://striveschool-api.herokuapp.com/api/movies/" + id, {
+                        method: 'DELETE',
+                        headers: {
+                            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmFiY2ZjMDRiY2RlMTAwMTc2MTZhOTkiLCJpYXQiOjE2MDUwOTUzNjEsImV4cCI6MTYwNjMwNDk2MX0.pk0lM9kNMqL9A5UmPUWFFL7d6VIeDWrsadveoIjUNSQ"
+                    }})
+                    
+                    if(response.ok) {
+                        alert("All good")
+                        window.location = "index.html"
+                    } else {
+                        alert(error)
+                    }
+                } catch (error) {
+                    alert(error)
+                }
+            } else {
+                alert("No Movie Found")
+            }
+
+        }
 
         
     </script>
