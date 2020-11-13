@@ -1,0 +1,120 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  background-color: #221f20;
+  color: white;
+}
+.navbarBG {
+  background-color: #221f20;
+}
+
+.pt-4 {
+  background-color: #221f20;
+}
+
+a {
+  color: antiquewhite;
+}
+
+.navbarTextKids {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.navbarTextKids:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+.navbarText {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.navbarText:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+.dropdown-toggle::after {
+  color: white;
+}
+
+h2 {
+  font-weight: 500;
+}
+
+.layoutButton {
+  background-color: #221f20;
+  border-radius: 0%;
+  border-color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.layoutButton:hover {
+  background-color: #221f20;
+  border-color: rgba(255, 255, 255, 1);
+  color: rgba(255, 255, 255, 1);
+}
+
+.layoutButton:focus {
+  background-color: #221f20;
+  border-color: rgba(255, 255, 255, 1);
+  color: rgba(255, 255, 255, 1);
+  box-shadow: none;
+}
+
+.layoutButton:active {
+  background-color: #221f20;
+  border-color: rgba(255, 255, 255, 1);
+  color: rgba(255, 255, 255, 1);
+  box-shadow: none;
+}
+
+.genreDrop {
+  background-color: black;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  border-radius: 0;
+  border-color: white;
+}
+
+.genreDrop:hover {
+  background-color: #43464b;
+  color: white;
+  border-color: white;
+}
+
+.genreDrop:active {
+  box-shadow: none;
+}
+
+.genreDrop:focus {
+  box-shadow: none;
+}
+
+.genreMenu {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-color: #43464b;
+  overflow-x: hidden;
+  height: 220px;
+}
+
+.genreMenuItems {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.genreMenuItems:hover {
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  text-decoration: underline white;
+}
+
+.serviceCode {
+  border-radius: 0%;
+  font-size: 14px;
+  color: antiquewhite;
+  border-color: antiquewhite;
+}

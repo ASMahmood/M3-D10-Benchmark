@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <title>Profile</title>
+
+    <style>
+      h1 {
+        font-size: 60px;
+      }
+
+      .checkboxText {
+        font-weight: 400;
+        font-size: 15px;
+      }
+
+      hr {
+        border-color: white;
+      }
+
+      select {
+        background-color: black;
+        color: white;
+        border-color: white;
+        text-align: center;
+        height: 30px;
+        width: 100px;
+      }
+
+      .nameInput {
+        border: none;
+        border-radius: 0;
+        background-color: rgba(255, 255, 255, 0.5);
+        color: black;
+      }
+
+      .rating {
+        font-weight: 600;
+        font-size: 15px;
+        background-color: rgba(255, 255, 255, 0.3);
+        display: inline;
+        padding: 5px;
+      }
+
+      .maturityText {
+        font-weight: 400;
+        font-size: 14px;
+        margin-top: 5px;
+      }
+
+      .edit {
+        border: solid 1px;
+        border-color: rgba(255, 255, 255, 0.5);
+        color: rgba(255, 255, 255, 0.5);
+        display: inline;
+        font-size: 12px;
+        padding: 7px 15px;
+      }
+
+      .profileButton {
+        border-color: rgba(255, 255, 255, 0.5);
+        color: rgba(255, 255, 255, 0.5);
+        border-radius: 0;
+      }
+
+      .profileButton:hover {
+        border-color: red;
+        background-color: red;
+        color: white;
+      }
+
+      .profileButton:focus {
+        border-color: white;
+        background-color: white;
+        color: #221f20;
+        box-shadow: none;
+      }
+
+      .profileButton:active {
+        border-color: white;
+        background-color: white;
+        color: #221f20;
+        box-shadow: none;
+      }
+
+      .check {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark navbarBG py-0 px-4">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarTogglerDemo01"
+        aria-controls="navbarTogglerDemo01"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="index.html"
+          ><img src="img/logo.png" alt="logo" style="width: 100px"
+        /></a>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row mt-5 justify-content-center">
+        <div class="col-7 text-left profileTitle">
+          <h1>Edit Profile</h1>
+          <hr />
+        </div>
+      </div>
+    </div>
+    <div class="container mainItems mt-3">
+      <div class="row justify-content-center">
+        <div class="col-2">
+          <img
+            src="img/profile.png"
+            class="rounded"
+            alt=""
+            width="130px"
+            height="130px"
+          />
+        </div>
+        <div class="col-5 pl-0">
+          <div class="input-group mb-3 mt-2">
+            <input
+              type="text"
+              class="form-control nameInput"
+              placeholder="Enter Name"
+              aria-label="Recipient's username"
+              aria-describedby="basic-addon2"
+            />
+          </div>
+          <div><h5>Language:</h5></div>
+          <div class="langSelect">
+            <select name="language" id="Language">
+              <option value="english">English</option>
+              <option value="english">English</option>
+              <option value="english">English</option>
+              <option value="english">English</option>
+            </select>
+          </div>
+          <hr />
+          <div><h5>Maturity Settings:</h5></div>
+          <h6 class="rating">ALL MATURITY RATINGS</h6>
+          <div>
+            <p class="maturityText">
+              Show titles of all maturity ratings for this profile
+            </p>
+          </div>
+          <h6 class="edit">E D I T</h6>
+          <hr />
+          <div><h5>Autoplay controls</h5></div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <input
+                  type="checkbox"
+                  class="check"
+                  aria-label="Checkbox for following text input"
+                />
+              </div>
+            </div>
+            <p class="checkboxText">
+              Autoplay next episode in a series on all devices
+            </p>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <input
+                  type="checkbox"
+                  aria-label="Checkbox for following text input"
+                />
+              </div>
+            </div>
+            <p class="checkboxText">
+              Autoplay previews while browsing on all devices
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-7">
+          <hr />
+        </div>
+      </div>
+    </div>
+    <div class="container mt-3">
+      <div class="row justify-content-center">
+        <div class="col-7 d-flex justify-content-around">
+          <div>
+            <button type="button" class="btn btn-outline-primary profileButton">
+              S A V E
+            </button>
+          </div>
+          <div>
+            <button type="button" class="btn btn-outline-primary profileButton">
+              C A N C E L
+            </button>
+          </div>
+          <div>
+            <button type="button" class="btn btn-outline-primary profileButton">
+              D E L E T E P R O F I L E
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
